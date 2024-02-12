@@ -18,7 +18,7 @@
         {
             get
             {
-                return allGradeList.Sum();
+                return this.allGradeList.Sum();
             }
         }
         public void AddGrade(int grade)
