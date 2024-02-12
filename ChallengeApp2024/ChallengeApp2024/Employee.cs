@@ -14,14 +14,14 @@
         public string Surname { get; private set; }
         public int Age { get; private set; }
 
-        public int gradeSum
+        public int GradeSum
         {
             get
             {
                 return allGradeList.Sum();
             }
         }
-        public void AddGradeList(int grade)
+        public void AddGrade(int grade)
         {
             allGradeList.Add(grade);
         }
