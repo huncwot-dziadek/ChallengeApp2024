@@ -2,7 +2,7 @@
 {
     public class Employee
     {
-        private List<int> allGradeList = new List<int>();
+        private List<float> allGradeList = new List<float>();
 
         public Employee(string name, string surname, int age)
         {
@@ -14,14 +14,14 @@
         public string Surname { get; private set; }
         public int Age { get; private set; }
 
-        public int GradeSum
+        public float GradeSum
         {
             get
             {
                 return this.allGradeList.Sum();
             }
         }
-        public void AddGrade(int grade)
+        public void AddGrade(float grade)
         {
             allGradeList.Add(grade);
         }
