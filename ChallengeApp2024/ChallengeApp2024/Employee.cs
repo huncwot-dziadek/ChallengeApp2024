@@ -2,11 +2,9 @@
 {
     public class Employee
     {
-        private List<int> gradeList = new List<int>();
+        private List<int> allGradeList = new List<int>();
 
-        
-
-        public Employee(string name, string surname, int age) 
+        public Employee(string name, string surname, int age)
         {
             this.Name = name;
             this.Surname = surname;
@@ -14,24 +12,18 @@
         }
         public string Name { get; private set; }
         public string Surname { get; private set; }
-        public int Age { get; private set;}
+        public int Age { get; private set; }
 
         public int gradeSum
         {
             get
             {
-                return gradeList.Sum();
+                return allGradeList.Sum();
             }
         }
-
-
-        public void AddGradeList(int grade) 
+        public void AddGradeList(int grade)
         {
-            gradeList.Add(grade);
+            allGradeList.Add(grade);
         }
-
-
-
-
     }
 }
