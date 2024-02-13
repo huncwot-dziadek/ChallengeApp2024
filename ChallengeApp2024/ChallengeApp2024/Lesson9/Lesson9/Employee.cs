@@ -23,7 +23,34 @@
                 Console.WriteLine("This grade is out of range");
             }
         }
+        public void AddGrade(int grade)
+        {
+            float floatFromInt = (float)grade;
+            this.grades.Add(floatFromInt);
+        }
+        public void AddGrade(double grade)
+        {
+            float floatFromDouble = (float)grade;
+            this.grades.Add(floatFromDouble);
+        }
+        public void AddGrade(long grade)
+        {
+            float floatFromLong = (float)grade;
+            this.grades.Add(floatFromLong);
+        }
+        public void AdGrade(char grade)
+        {
+            float floatFromChar = (float)grade;
 
+            if (floatFromChar > 0 && floatFromChar < 58)
+            {
+                this.grades.Add(floatFromChar - 48);
+            }
+            else
+            {
+                Console.WriteLine("This sign cannot be considered a number");
+            }
+        }
         public void AdGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
