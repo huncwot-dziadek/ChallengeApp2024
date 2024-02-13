@@ -14,7 +14,26 @@
 
         public void AdGrade(float grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("This grade is out of range");
+            }
+        }
+
+        public void AdGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AdGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("This grade is not float");
+            }
         }
 
         public Statistics GetStatistics()
