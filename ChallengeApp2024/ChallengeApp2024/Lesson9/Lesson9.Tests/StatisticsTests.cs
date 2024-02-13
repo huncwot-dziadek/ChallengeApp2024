@@ -7,9 +7,9 @@ namespace Lesson9.Tests
         public void WhetherTheSatisticsFindTheRangeOfMaxCorrectly()
         {
             Employee employee = new Employee("Konrad", "Wagabunda");
-            employee.AdGrade(3);
-            employee.AdGrade(5);
-            employee.AdGrade(6);
+            employee.AddGrade(3);
+            employee.AddGrade(5);
+            employee.AddGrade(6);
             var statistics = employee.GetStatistics();
 
             Assert.AreEqual(6, statistics.Max);
@@ -19,9 +19,9 @@ namespace Lesson9.Tests
         public void WhetherTheSatisticsFindTheRangeOfMinCorrectly()
         {
             Employee employee = new Employee("Konrad", "Wagabunda");
-            employee.AdGrade(3);
-            employee.AdGrade(5);
-            employee.AdGrade(6);
+            employee.AddGrade(3);
+            employee.AddGrade(5);
+            employee.AddGrade(6);
             var statistics = employee.GetStatistics();
 
             Assert.AreEqual(3, statistics.Min);
@@ -31,9 +31,9 @@ namespace Lesson9.Tests
         public void WetherTheSatisticsCalculateTheAverageCorrectly()
         {
             Employee employee = new Employee("Konrad", "Wagabunda");
-            employee.AdGrade(3);
-            employee.AdGrade(5);
-            employee.AdGrade(6);
+            employee.AddGrade(3);
+            employee.AddGrade(5);
+            employee.AddGrade(6);
             var statistics = employee.GetStatistics();
 
             float average = (float)(3 + 5 + 6) / 3;

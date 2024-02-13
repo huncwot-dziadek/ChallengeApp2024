@@ -12,7 +12,7 @@
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
-        public void AdGrade(float grade)
+        public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -26,7 +26,14 @@
         public void AddGrade(int grade)
         {
             float floatFromInt = (float)grade;
-            this.grades.Add(floatFromInt);
+            if (floatFromInt >= 0 && floatFromInt <= 100)
+            {
+                this.grades.Add(floatFromInt);
+            }
+            else
+            {
+                Console.WriteLine("This grade is out of range");
+            }
         }
         public void AddGrade(double grade)
         {
@@ -38,7 +45,7 @@
             float floatFromLong = (float)grade;
             this.grades.Add(floatFromLong);
         }
-        public void AdGrade(char grade)
+        public void AddGrade(char grade)
         {
             float floatFromChar = (float)grade;
 
@@ -51,11 +58,11 @@
                 Console.WriteLine("This sign cannot be considered a number");
             }
         }
-        public void AdGrade(string grade)
+        public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
-                this.AdGrade(result);
+                this.AddGrade(result);
             }
             else
             {
