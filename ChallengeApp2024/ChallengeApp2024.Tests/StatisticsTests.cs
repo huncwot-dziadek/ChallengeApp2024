@@ -1,7 +1,5 @@
 using ChallengeApp2024;
 
-namespace Lesson9.Tests
-{
     public class Tests
     {
 
@@ -12,7 +10,7 @@ namespace Lesson9.Tests
             employee.AddGrade(3);
             employee.AddGrade(5);
             employee.AddGrade(6);
-            var statistics = employee.GetStatisticsWhenForeach();
+            var statistics = employee.GetStatistics();
 
             Assert.AreEqual(6, statistics.Max);
         }
@@ -24,7 +22,7 @@ namespace Lesson9.Tests
             employee.AddGrade(3);
             employee.AddGrade(5);
             employee.AddGrade(6);
-            var statistics = employee.GetStatisticsWhenForeach();
+            var statistics = employee.GetStatistics();
 
             Assert.AreEqual(3, statistics.Min);
         }
@@ -36,11 +34,10 @@ namespace Lesson9.Tests
             employee.AddGrade(3);
             employee.AddGrade(5);
             employee.AddGrade(6);
-            var statistics = employee.GetStatisticsWhenForeach();
+            var statistics = employee.GetStatistics();
 
             float average = (float)(3 + 5 + 6) / 3;
 
             Assert.AreEqual(average, statistics.Average);
         }
     }
-}

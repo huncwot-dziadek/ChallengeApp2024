@@ -1,9 +1,14 @@
-﻿namespace ChallengeApp2024
+﻿using System.Diagnostics;
+
+namespace ChallengeApp2024
 {
     public class Employee
     {
         private List<float> grades = new List<float>();
 
+        public Employee()
+        {
+        }
         public Employee(string name, string surname)
         {
             Name = name;
@@ -52,15 +57,31 @@
         }
         public void AddGrade(char grade)
         {
-            float floatFromChar = grade;
-
-            if (floatFromChar > 0 && floatFromChar < 58)
+            switch (grade)
             {
-                grades.Add(floatFromChar - 48);
-            }
-            else
-            {
-                Console.WriteLine("This sign cannot be considered a number");
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong letter");
+                    break;
             }
         }
         public void AddGrade(string grade)
@@ -74,8 +95,7 @@
                 Console.WriteLine("This grade is not float");
             }
         }
-
-        public Statistics GetStatisticsWhenForeach()
+        public Statistics GetStatistics()
         {
             var statistics = new Statistics();
 
@@ -91,69 +111,40 @@
             }
 
             statistics.Average /= grades.Count;
-            return statistics;
-        }
 
-        public Statistics GetStatisticsWhenFor()
-        {
-            var statistics = new Statistics();
-
-            statistics.Min = float.MaxValue;
-            statistics.Max = float.MinValue;
-            statistics.Average = 0;
-
-            for (int index = 0; index < grades.Count; index++)
+            switch (statistics.Average)
             {
-                statistics.Average += grades[index];
-                statistics.Max = Math.Max(statistics.Max, grades[index]);
-                statistics.Min = Math.Min(statistics.Min, grades[index]);
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
             }
 
-            statistics.Average /= grades.Count;
             return statistics;
         }
-
-        public Statistics GetStatisticsWhenDoWhile()
-        {
-            var statistics = new Statistics();
-
-            statistics.Min = float.MaxValue;
-            statistics.Max = float.MinValue;
-            statistics.Average = 0;
-            int index = 0;
-
-            do
-            {
-                statistics.Average += grades[index];
-                statistics.Max = Math.Max(statistics.Max, grades[index]);
-                statistics.Min = Math.Min(statistics.Min, grades[index]);
-                index++;
-            } while (index < grades.Count);
-
-            statistics.Average /= grades.Count;
-            return statistics;
-        }
-        public Statistics GetStatisticsWhenWhile()
-        {
-            var statisticsWhile = new Statistics();
-
-            statisticsWhile.Min = float.MaxValue;
-            statisticsWhile.Max = float.MinValue;
-            statisticsWhile.Average = 0;
-            int index = 0;
-
-            while (index < grades.Count)
-            {
-                statisticsWhile.Average += grades[index];
-                statisticsWhile.Max = Math.Max(statisticsWhile.Max, grades[index]);
-                statisticsWhile.Min = Math.Min(statisticsWhile.Min, grades[index]);
-                index++;
-            }
-
-            statisticsWhile.Average /= grades.Count;
-            return statisticsWhile;
-        }
-
     }
-
 }
+
+// MOJE CHAR POPRZEDNIE
+
+//float floatFromChar = grade;
+
+//if (floatFromChar > 0 && floatFromChar < 58)
+//{
+//    grades.Add(floatFromChar - 48);
+//}
+//else
+//{
+//    Console.WriteLine("This sign cannot be considered a number");
+//}
