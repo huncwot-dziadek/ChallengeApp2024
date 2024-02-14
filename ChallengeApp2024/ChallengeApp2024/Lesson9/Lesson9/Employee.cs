@@ -23,27 +23,32 @@
                 Console.WriteLine("This grade is out of range");
             }
         }
-        public void AddGrade(int grade)
+        public void AddGrade(byte grade)
         {
-            float floatFromInt = (float)grade;
-            if (floatFromInt >= 0 && floatFromInt <= 100)
+            float floatFromByte = (float)grade;
+            if (floatFromByte <= 100)
             {
-                this.grades.Add(floatFromInt);
+                this.grades.Add(floatFromByte);
             }
             else
             {
-                Console.WriteLine("This grade is out of range");
+                Console.WriteLine("This grade is bigger 100");
             }
         }
-        public void AddGrade(double grade)
+        public void AddGrade(int grade)
         {
-            float floatFromDouble = (float)grade;
-            this.grades.Add(floatFromDouble);
+            float floatFromInt = (float)grade;
+            AddGrade(floatFromInt);
         }
         public void AddGrade(long grade)
         {
             float floatFromLong = (float)grade;
-            this.grades.Add(floatFromLong);
+            AddGrade(floatFromLong);
+        }
+        public void AddGrade(double grade)
+        {
+            float floatFromDouble = (float)grade;
+            AddGrade(floatFromDouble);
         }
         public void AddGrade(char grade)
         {
