@@ -1,3 +1,5 @@
+using ChallengeApp2024;
+
 namespace Lesson9.Tests
 {
     public class Tests
