@@ -5,7 +5,7 @@ public class LetterGradeTests
     [Test]
     public void WhetherLetterACountedCorrectly()
     {
-        Employee employee = new Employee();
+        Employee employee = new Employee("Hieronim", "Podległy","K", 14);
         employee.AddGrade("A");
         employee.AddGrade("a");
         var statistics = employee.GetStatistics();
@@ -18,7 +18,7 @@ public class LetterGradeTests
     [Test]
     public void WhetherLetterBCountedCorrectly()
     {
-        Employee employee = new Employee();
+        Employee employee = new Employee("Hieronim", "Podległy", "K", 14);
         employee.AddGrade("B");
         employee.AddGrade("b");
         var statistics = employee.GetStatistics();
@@ -31,7 +31,7 @@ public class LetterGradeTests
     [Test]
     public void WhetherLetterCCountedCorrectly()
     {
-        Employee employee = new Employee();
+        Employee employee = new Employee("Hieronim", "Podległy", "K", 14);
         employee.AddGrade("C");
         employee.AddGrade("c");
         var statistics = employee.GetStatistics();
@@ -44,7 +44,7 @@ public class LetterGradeTests
     [Test]
     public void WhetherLetterDCountedCorrectly()
     {
-        Employee employee = new Employee();
+        Employee employee = new Employee("Hieronim", "Podległy", "K", 14);
         employee.AddGrade("D");
         employee.AddGrade("d");
         var statistics = employee.GetStatistics();
@@ -57,7 +57,7 @@ public class LetterGradeTests
     [Test]
     public void WhetherLetterECountedCorrectly()
     {
-        Employee employee = new Employee();
+        Employee employee = new Employee("Hieronim", "Podległy", "K", 14);
         employee.AddGrade("E");
         employee.AddGrade("e");
         var statistics = employee.GetStatistics();

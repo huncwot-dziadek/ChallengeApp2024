@@ -1,7 +1,6 @@
 ﻿using ChallengeApp2024;
-using static System.Net.Mime.MediaTypeNames;
 
-Employee employee = new Employee();
+Employee employee = new Employee("Hieronim", "Podległy", "M", 22);
 
 Console.WriteLine("Welcome to the program: EMPLOYEE OF THE MONTH");
 Console.WriteLine("=============================================");
@@ -28,9 +27,13 @@ while (true)
 
 var statistics = employee.GetStatistics();
 
+
+
+
 Console.WriteLine();
 Console.Write($"Max = {statistics.Max}   ");
 Console.Write($"Min = {statistics.Min}   ");
 Console.Write($"Average = {statistics.Average:N2}   ");
-Console.WriteLine($"AverageLetter = {statistics.AverageLetter}   ");
+//Console.WriteLine($"AverageLetter = {statistics.AverageLetter}   ");
+Console.WriteLine(employee.Age);
 

@@ -6,7 +6,7 @@ using ChallengeApp2024;
         [Test]
         public void WhetherTheSatisticsFindTheRangeOfMaxCorrectly()
         {
-            Employee employee = new Employee("Konrad", "Wagabunda");
+            Employee employee = new Employee("Konrad", "Wagabunda", "M", 33);
             employee.AddGrade(3);
             employee.AddGrade(5);
             employee.AddGrade(6);
@@ -18,7 +18,7 @@ using ChallengeApp2024;
         [Test]
         public void WhetherTheSatisticsFindTheRangeOfMinCorrectly()
         {
-            Employee employee = new Employee("Konrad", "Wagabunda");
+            Employee employee = new Employee("Konrad", "Wagabunda", "M", 33);
             employee.AddGrade(3);
             employee.AddGrade(5);
             employee.AddGrade(6);
@@ -30,7 +30,7 @@ using ChallengeApp2024;
         [Test]
         public void WetherTheSatisticsCalculateTheAverageCorrectly()
         {
-            Employee employee = new Employee("Konrad", "Wagabunda");
+            Employee employee = new Employee("Konrad", "Wagabunda", "M", 33);
             employee.AddGrade(3);
             employee.AddGrade(5);
             employee.AddGrade(6);

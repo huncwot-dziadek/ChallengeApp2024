@@ -1,19 +1,15 @@
 ﻿namespace ChallengeApp2024
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> grades = new List<float>();
 
-        public Employee()
+
+
+        public Employee(string name, string surname, string sex, int age)
+            : base(name, surname, sex, age)
         {
         }
-        public Employee(string name, string surname)
-        {
-            Name = name;
-            Surname = surname;
-        }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
 
         public void AddGrade(float grade)
         {
