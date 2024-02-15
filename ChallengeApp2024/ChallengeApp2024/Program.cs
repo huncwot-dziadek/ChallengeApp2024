@@ -3,20 +3,27 @@ using static System.Net.Mime.MediaTypeNames;
 
 Employee employee = new Employee();
 
-Console.WriteLine("Witaj w programie: PRACOWNIK MIESIĄCA");
-Console.WriteLine("=====================================");
+Console.WriteLine("Welcome to the program: EMPLOYEE OF THE MONTH");
+Console.WriteLine("=============================================");
 Console.WriteLine();
 
-while(true)
+while (true)
 {
-    Console.Write("Podaj kolejną ocenę pracownika:  ");
+    Console.Write("Provide another employee evaluation:  ");
     var input = Console.ReadLine();
-    
-    if(input == "Q" || input == "q")
+
+    if (input == "Q" || input == "q")
     {
         break;
     }
-    employee.AddGrade(input);
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Exception catched: {ex.Message}");
+    }
 }
 
 var statistics = employee.GetStatistics();

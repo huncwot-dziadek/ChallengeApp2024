@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace ChallengeApp2024
+﻿namespace ChallengeApp2024
 {
     public class Employee
     {
@@ -21,11 +19,11 @@ namespace ChallengeApp2024
         {
             if (grade >= 0 && grade <= 100)
             {
-                AddGrade(grade);
+                this.grades.Add(grade);
             }
             else
             {
-                Console.WriteLine("This grade is out of range");
+                throw new Exception("This grade is out of range");
             }
         }
         public void AddGrade(byte grade)
@@ -37,7 +35,7 @@ namespace ChallengeApp2024
             }
             else
             {
-                Console.WriteLine("This grade is bigger 100");
+                throw new Exception("This grade is bigger 100");
             }
         }
         public void AddGrade(int grade)
@@ -80,8 +78,7 @@ namespace ChallengeApp2024
                     AddGrade(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong letter");
-                    break;
+                    throw new Exception("The letter is incorrect");
             }
         }
         public void AddGrade(string grade)
@@ -97,7 +94,7 @@ namespace ChallengeApp2024
             }
             else
             {
-                Console.WriteLine("This grade is not float");
+                throw new Exception("This grade is not float");
             }
         }
         public Statistics GetStatistics()
@@ -140,16 +137,3 @@ namespace ChallengeApp2024
         }
     }
 }
-
-// MOJE CHAR POPRZEDNIE
-
-//float floatFromChar = grade;
-
-//if (floatFromChar > 0 && floatFromChar < 58)
-//{
-//    grades.Add(floatFromChar - 48);
-//}
-//else
-//{
-//    Console.WriteLine("This sign cannot be considered a number");
-//}
