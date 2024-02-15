@@ -90,6 +90,11 @@ namespace ChallengeApp2024
             {
                 AddGrade(result);
             }
+            else if (grade.Length == 1)
+            {
+                char charFromString = Convert.ToChar(grade[0]);
+                AddGrade(charFromString);
+            }
             else
             {
                 Console.WriteLine("This grade is not float");
