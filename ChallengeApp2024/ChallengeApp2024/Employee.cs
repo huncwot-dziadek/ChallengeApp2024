@@ -21,7 +21,7 @@ namespace ChallengeApp2024
         {
             if (grade >= 0 && grade <= 100)
             {
-                grades.Add(grade);
+                AddGrade(grade);
             }
             else
             {
@@ -33,7 +33,7 @@ namespace ChallengeApp2024
             float floatFromByte = grade;
             if (floatFromByte <= 100)
             {
-                grades.Add(floatFromByte);
+                AddGrade(floatFromByte);
             }
             else
             {
