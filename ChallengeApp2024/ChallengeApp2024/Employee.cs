@@ -4,12 +4,17 @@
     {
         private List<float> grades = new List<float>();
 
-
-
-        public Employee(string name, string surname, string sex, int age)
-            : base(name, surname, sex, age)
+        public Employee(string name, string surname, string sex)
+         : base(name, surname, sex)
         {
         }
+
+        public Employee(string name, string surname, string sex, int age)
+            : base(name, surname, sex)
+        {
+            this.Age = age;
+        }
+        public int Age { get; private set; }
 
         public void AddGrade(float grade)
         {
