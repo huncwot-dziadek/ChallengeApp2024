@@ -1,6 +1,6 @@
 ﻿namespace ChallengeApp2024
 {
-    public class Person
+    public abstract class Person
     {
         public Person(string name, string surname, string sex, int age)   
         {
@@ -14,6 +14,8 @@
         public string Surname { get; private set; }
         public string Sex { get; private set; }
         public int Age { get; private set; }
+
+        int zmienna;
 
     }
 }

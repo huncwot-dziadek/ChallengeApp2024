@@ -27,13 +27,9 @@ while (true)
 
 var statistics = employee.GetStatistics();
 
-
-
-
 Console.WriteLine();
 Console.Write($"Max = {statistics.Max}   ");
 Console.Write($"Min = {statistics.Min}   ");
 Console.Write($"Average = {statistics.Average:N2}   ");
-//Console.WriteLine($"AverageLetter = {statistics.AverageLetter}   ");
-Console.WriteLine(employee.Age);
+Console.WriteLine($"AverageLetter = {statistics.AverageLetter}   ");
 
