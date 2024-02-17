@@ -1,8 +1,11 @@
 ﻿using ChallengeApp2024;
 
-Employee employee = new Employee("Hieronim", "Niepodległy", "Male", 22);
+Supervisor supervisor = new Supervisor("Hieronim", "Niepodległy", "Male", 42, "MASTER");
+Employee employee = new Employee("Antoni", "Wykop", "Male", 32, "WORKER");
 
-Console.WriteLine("Welcome to the program: EMPLOYEE OF THE MONTH");
+var rated = supervisor;
+
+Console.WriteLine($"Welcome to the program: {rated.JobPosition} OF THE MONTH");
 Console.WriteLine("=============================================");
 Console.WriteLine();
 
@@ -18,7 +21,7 @@ while (true)
     }
     try
     {
-        employee.AddGrade(input);
+        rated.AddGrade(input);
     }
     catch (Exception ex)
     {
@@ -26,14 +29,14 @@ while (true)
     }
 }
 
-var statistics = employee.GetStatistics();
+var statistics = rated.GetStatistics();
 
 Console.WriteLine();
 Console.WriteLine("============================================");
-Console.WriteLine($"{employee.Name} {employee.Surname} final results:");
-Console.WriteLine($"Masimum rating = {statistics.Max}   ");
-Console.WriteLine($"Mininum rating = {statistics.Min}   ");
-Console.WriteLine($"Average rating = {statistics.Average:N2}   ");
+Console.WriteLine($"{rated.JobPosition} {rated.Name} {rated.Surname} final results:");
+Console.WriteLine($"Masimum rating = {rated.GetStatistics().Max}   ");
+Console.WriteLine($"Mininum rating = {rated.GetStatistics().Min}   ");
+Console.WriteLine($"Average rating = {rated.GetStatistics().Average:N2}   ");
 Console.WriteLine("============================================");
 Console.Write($"Max = {statistics.Max}   ");
 Console.Write($"Min = {statistics.Min}   ");

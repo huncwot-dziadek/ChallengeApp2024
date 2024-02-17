@@ -1,10 +1,14 @@
-﻿namespace ChallengeApp2024
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace ChallengeApp2024
 {
-    public class Employee : IEmployee
+    public class Supervisor : ISupervisor
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname, string sex, int age, string jobPosition)
+        private bool oneOfTheConditionsIsMet = false;
+
+        public Supervisor(string name, string surname, string sex, int age, string jobPosition)
         {
             this.Name = name;
             this.Surname = surname;
@@ -33,77 +37,65 @@
                 throw new Exception("This grade is out of range");
             }
         }
-        public void AddGrade(byte grade)
-        {
-            float floatFromByte = grade;
-            if (floatFromByte <= 100)
-            {
-                AddGrade(floatFromByte);
-            }
-            else
-            {
-                throw new Exception("This grade is bigger 100");
-            }
-        }
         public void AddGrade(int grade)
         {
             float floatFromInt = grade;
             AddGrade(floatFromInt);
         }
-        public void AddGrade(long grade)
-        {
-            float floatFromLong = grade;
-            AddGrade(floatFromLong);
-        }
-        public void AddGrade(double grade)
-        {
-            float floatFromDouble = (float)grade;
-            AddGrade(floatFromDouble);
-        }
-        public void AddGrade(char grade)
-        {
-            switch (grade)
-            {
-                case 'A':
-                case 'a':
-                    AddGrade(100);
-                    break;
-                case 'B':
-                case 'b':
-                    AddGrade(80);
-                    break;
-                case 'C':
-                case 'c':
-                    AddGrade(60);
-                    break;
-                case 'D':
-                case 'd':
-                    AddGrade(40);
-                    break;
-                case 'E':
-                case 'e':
-                    AddGrade(20);
-                    break;
-                default:
-                    throw new Exception("The letter is incorrect");
-            }
-        }
+
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
+            if (grade.Length == 1)
             {
-                AddGrade(result);
+                if (grade[0] >= 49 && grade[0] <= 54)
+                {
+                    var rating = grade[0] - 48;
+                    var valueRating = (rating - 1) * 20;
+                    AddGrade(valueRating);
+                }
+                else
+                {
+                    throw new Exception("This grade is not float or is bigger 6");
+                }
             }
-            else if (grade.Length == 1)
+
+            if (grade.Length == 2)
             {
-                char charFromString = Convert.ToChar(grade[0]);
-                AddGrade(charFromString);
+                for (int i = 0; i < grade.Length; i++)
+                {
+                    for (int j = 1; j >= 0; j--)
+                    {
+                        if ((grade[i] >= 49 && grade[i] <= 54) && (grade[j] == 43))
+                        {
+                            var rating = grade[i] - 48;
+                            var valueRating = ((rating - 1) * 20) + 5;
+                            AddGrade(valueRating);
+                            oneOfTheConditionsIsMet = true;
+                        }
+                        else if ((grade[i] >= 49 && grade[i] <= 54) && (grade[j] == 45))
+                        {
+                            var rating = grade[i] - 48;
+                            var valueRating = ((rating - 1) * 20) - 5;
+                            AddGrade(valueRating);
+                            oneOfTheConditionsIsMet = true;
+                        }
+                        else
+                        {
+                            if (oneOfTheConditionsIsMet == false)
+                            {
+                                throw new Exception("Incorrectly entered rating");
+                            }
+                        }
+                    }
+                }
             }
-            else
+
+            if (grade.Length > 2)
             {
-                throw new Exception("This grade is not float");
+                throw new Exception("This grade is not float or is bigger 6");
             }
         }
+ 
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -144,3 +136,5 @@
         }
     }
 }
+
+
