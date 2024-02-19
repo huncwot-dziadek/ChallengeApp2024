@@ -6,12 +6,6 @@
 
         string Surname { get; }
 
-        string Sex { get; }
-
-        int Age { get; }
-
-        string JobPosition { get; }
-
         void AddGrade(float grade);
 
         void AddGrade(int grade);
