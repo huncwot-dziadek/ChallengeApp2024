@@ -44,16 +44,19 @@
             float floatFromInt = grade;
             AddGrade(floatFromInt);
         }
+
         public void AddGrade(long grade)
         {
             float floatFromLong = grade;
             AddGrade(floatFromLong);
         }
+
         public void AddGrade(double grade)
         {
             float floatFromDouble = (float)grade;
             AddGrade(floatFromDouble);
         }
+
         public void AddGrade(char grade)
         {
             switch (grade)
@@ -82,6 +85,7 @@
                     throw new Exception("The letter is incorrect");
             }
         }
+
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
@@ -98,6 +102,7 @@
                 throw new Exception("This grade is not float");
             }
         }
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
