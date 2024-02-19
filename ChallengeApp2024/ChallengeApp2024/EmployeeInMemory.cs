@@ -25,10 +25,8 @@
         {
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
-            float floatFromDouble = (float)grade;
-            AddGrade(floatFromDouble);
         }
 
         public override void AddGrade(char grade)
@@ -59,7 +57,6 @@
                     throw new Exception("The letter is incorrect");
             }
         }
-
         public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
@@ -76,8 +73,6 @@
                 throw new Exception("This grade is not float");
             }
         }
-
-        public Statistics GetStatistics()
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();

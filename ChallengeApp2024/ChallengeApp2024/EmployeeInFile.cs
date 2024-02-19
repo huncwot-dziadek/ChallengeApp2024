@@ -10,22 +10,10 @@
         {
         }
 
-        public void AddGradesToFile(float grade)
-        {
-            using (var writer = File.AppendText(fileName))
-            {
-                foreach(var gradeToFile in gradesInMemory)
-                {
-                    writer.WriteLine(grade);
-                }        
-            }
-        }
-
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
-                //this.gradesInMemory.Add(grade);
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);

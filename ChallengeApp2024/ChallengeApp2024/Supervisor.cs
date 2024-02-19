@@ -2,31 +2,20 @@
 
 namespace ChallengeApp2024
 {
-    public class Supervisor : ISupervisor
+    public class Supervisor : EmployeeBase
     {
         private List<float> grades = new List<float>();
 
         private bool oneOfTheConditionsIsMet = false;
 
-        public Supervisor(string name, string surname, string sex, int age, string jobPosition)
+        public Supervisor(string name, string surname) : base(name, surname)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Sex = sex;
-            this.Age = age;
-            this.JobPosition = jobPosition;
         }
         public string Name { get; private set; }
 
         public string Surname { get; private set; }
 
-        public string Sex { get; private set; }
-
-        public int Age { get; private set; }
-
-        public string JobPosition { get; private set; }
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -39,11 +28,41 @@ namespace ChallengeApp2024
         }
         public void AddGrade(int grade)
         {
-            float floatFromInt = grade;
-            AddGrade(floatFromInt);
         }
 
-        public void AddGrade(string grade)
+        public void AddGrade(double grade)
+        {
+        }
+
+        public override void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    AddGrade(100.0f);
+                    break;
+                case 'B':
+                case 'b':
+                    AddGrade(80.0f);
+                    break;
+                case 'C':
+                case 'c':
+                    AddGrade(60.0f);
+                    break;
+                case 'D':
+                case 'd':
+                    AddGrade(40.0f);
+                    break;
+                case 'E':
+                case 'e':
+                    AddGrade(20.0f);
+                    break;
+                default:
+                    throw new Exception("The letter is incorrect");
+            }
+        }
+        public override void AddGrade(string grade)
         {
             if (grade.Length == 1)
             {
@@ -96,7 +115,7 @@ namespace ChallengeApp2024
             }
         }
  
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
 
