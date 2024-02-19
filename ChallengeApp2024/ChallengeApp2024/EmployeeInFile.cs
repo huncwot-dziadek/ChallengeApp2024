@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-
-namespace ChallengeApp2024
+﻿namespace ChallengeApp2024
 {
     public class EmployeeInFile : EmployeeBase
     {

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace ChallengeApp2024
+﻿namespace ChallengeApp2024
 {
     public abstract class EmployeeBase : IEmployee
     {
@@ -30,11 +28,8 @@ namespace ChallengeApp2024
 
         public abstract void AddGrade(char grade);
 
-
         public abstract void AddGrade(string grade);
 
-
         public abstract Statistics GetStatistics();
-
     }
 }

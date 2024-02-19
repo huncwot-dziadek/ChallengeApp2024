@@ -1,5 +1,4 @@
 ﻿using ChallengeApp2024;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 EmployeeInFile employeeInFile = new EmployeeInFile("Archibald", "Wykolejony");
 
@@ -27,23 +26,6 @@ while (true)
     }
 }
 
-
-
-
-
-
-//employeeInFile.AddGrade(0.5f);
-//employeeInFile.AddGrade($"{employeeInFile.Name} {employeeInFile.Surname}");
-
-//try
-//{
-//    employeeInFile.GetStatistics();
-//}
-//catch (Exception ex)
-//{
-//    Console.WriteLine($"Exception catched: {ex.Message}");
-//}
-
 employeeInFile.ReadingFromFile();
 
 Console.WriteLine();
@@ -55,38 +37,4 @@ Console.WriteLine($"Average rating = {employeeInFile.GetStatistics().Average:N2}
 Console.WriteLine("============================================");
 Console.Write($"Max = {employeeInFile.GetStatistics().Max}   ");
 Console.Write($"Min = {employeeInFile.GetStatistics().Min}   ");
-Console.Write($"Average = {employeeInFile.GetStatistics().Average:N2}   ");
-Console.WriteLine($"AverageLetter = {employeeInFile.GetStatistics().AverageLetter}   ");
-
-
-
-
-/*
-Supervisor supervisor = new Supervisor("Hieronim", "Niepodległy", "Male", 42, "MASTER");
-Employee employee = new Employee("Antoni", "Wykop", "Male", 32, "WORKER");
-
-var rated = supervisor;
-
-EmployeeInMemory employeeIn = new EmployeeInMemory("Adam", "Marek");
-
-Console.WriteLine();
-employeeIn.SayHallo();
-
-
-
-
-var statistics = rated.GetStatistics();
-
-Console.WriteLine();
-Console.WriteLine("============================================");
-Console.WriteLine($"{rated.JobPosition} {rated.Name} {rated.Surname} final results:");
-Console.WriteLine($"Masimum rating = {rated.GetStatistics().Max}   ");
-Console.WriteLine($"Mininum rating = {rated.GetStatistics().Min}   ");
-Console.WriteLine($"Average rating = {rated.GetStatistics().Average:N2}   ");
-Console.WriteLine("============================================");
-Console.Write($"Max = {statistics.Max}   ");
-Console.Write($"Min = {statistics.Min}   ");
-Console.Write($"Average = {statistics.Average:N2}   ");
-Console.WriteLine($"AverageLetter = {statistics.AverageLetter}   ");
-
-*/
+Console.WriteLine($"Average = {employeeInFile.GetStatistics().Average:N2}   ");
