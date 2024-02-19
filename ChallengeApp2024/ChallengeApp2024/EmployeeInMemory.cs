@@ -1,22 +1,15 @@
 ﻿namespace ChallengeApp2024
 {
-    public class Employee : Person
+    public class EmployeeInMemory : EmployeeBase
     {
+
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname, string sex)
-         : base(name, surname, sex)
+        public EmployeeInMemory(string name, string surname) : base(name, surname)
         {
         }
 
-        public Employee(string name, string surname, string sex, int age)
-            : base(name, surname, sex)
-        {
-            this.Age = age;
-        }
-        public int Age { get; private set; }
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -27,28 +20,9 @@
                 throw new Exception("This grade is out of range");
             }
         }
-        public void AddGrade(byte grade)
-        {
-            float floatFromByte = grade;
-            if (floatFromByte <= 100)
-            {
-                AddGrade(floatFromByte);
-            }
-            else
-            {
-                throw new Exception("This grade is bigger 100");
-            }
-        }
-        public void AddGrade(int grade)
-        {
-            float floatFromInt = grade;
-            AddGrade(floatFromInt);
-        }
 
-        public void AddGrade(long grade)
+        public override void AddGrade(int grade)
         {
-            float floatFromLong = grade;
-            AddGrade(floatFromLong);
         }
 
         public void AddGrade(double grade)
@@ -57,7 +31,7 @@
             AddGrade(floatFromDouble);
         }
 
-        public void AddGrade(char grade)
+        public override void AddGrade(char grade)
         {
             switch (grade)
             {
@@ -86,7 +60,7 @@
             }
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
@@ -104,6 +78,7 @@
         }
 
         public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
 
