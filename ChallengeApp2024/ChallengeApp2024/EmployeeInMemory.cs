@@ -21,11 +21,11 @@
             }
         }
 
-        public override void AddGrade(int grade)
+        public void AddGrade(int grade)
         {
         }
 
-        public override void AddGrade(double grade)
+        public void AddGrade(double grade)
         {
         }
 

@@ -14,13 +14,13 @@
 
         public abstract void AddGrade(float grade);
 
-        public virtual void AddGrade(int grade)
+        public void AddGrade(int grade)
         {
             float floatFromInt = grade;
             AddGrade(floatFromInt);
         }
 
-        public virtual void AddGrade(double grade)
+        public void AddGrade(double grade)
         {
             float floatFromDouble = (float)grade;
             AddGrade(floatFromDouble);
