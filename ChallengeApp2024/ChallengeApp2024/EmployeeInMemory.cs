@@ -23,10 +23,12 @@
 
         public void AddGrade(int grade)
         {
+            base.AddGrade(grade);
         }
 
         public void AddGrade(double grade)
         {
+            base.AddGrade(grade);
         }
 
         public override void AddGrade(char grade)

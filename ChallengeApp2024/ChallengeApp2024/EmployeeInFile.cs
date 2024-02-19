@@ -4,7 +4,7 @@
     {
         private List<float> gradesInMemory = new List<float>();
 
-        private const string fileName = "grades2.txt";
+        private const string fileName = "grades.txt";
 
         public EmployeeInFile(string name, string surname) : base(name, surname)
         {
@@ -27,38 +27,43 @@
 
         public void AddGrade(int grade)
         {
+            base.AddGrade(grade);
         }
 
         public void AddGrade(double grade)
         {
+            base.AddGrade(grade);
         }
 
         public override void AddGrade(char grade)
         {
-            switch (grade)
+            if ((grade >= 65 && grade <= 69) || (grade >= 97 && grade <= 101))
             {
-                case 'A':
-                case 'a':
-                    AddGrade(100.0f);
-                    break;
-                case 'B':
-                case 'b':
-                    AddGrade(80.0f);
-                    break;
-                case 'C':
-                case 'c':
-                    AddGrade(60.0f);
-                    break;
-                case 'D':
-                case 'd':
-                    AddGrade(40.0f);
-                    break;
-                case 'E':
-                case 'e':
-                    AddGrade(20.0f);
-                    break;
-                default:
-                    throw new Exception("The letter is incorrect");
+                switch (grade)
+                {
+                    case 'A':
+                    case 'a':
+                        AddGrade(100.0f);
+                        break;
+                    case 'B':
+                    case 'b':
+                        AddGrade(80.0f);
+                        break;
+                    case 'C':
+                    case 'c':
+                        AddGrade(60.0f);
+                        break;
+                    case 'D':
+                    case 'd':
+                        AddGrade(40.0f);
+                        break;
+                    case 'E':
+                    case 'e':
+                        AddGrade(20.0f);
+                        break;
+                    default:
+                        throw new Exception("The letter is incorrect");
+                }
             }
         }
 
@@ -70,8 +75,31 @@
             }
             else if (grade.Length == 1)
             {
-                char charFromString = Convert.ToChar(grade[0]);
-                AddGrade(charFromString);
+                    switch (grade)
+                    {
+                        case "A":
+                        case "a":
+                            AddGrade(100.0f);
+                            break;
+                        case "B":
+                        case "b":
+                            AddGrade(80.0f);
+                            break;
+                        case "C":
+                        case "c":
+                            AddGrade(60.0f);
+                            break;
+                        case "D":
+                        case "d":
+                            AddGrade(40.0f);
+                            break;
+                        case "E":
+                        case "e":
+                            AddGrade(20.0f);
+                            break;
+                        default:
+                            throw new Exception("The letter is incorrect");
+                    }
             }
             else
             {
@@ -118,6 +146,6 @@
             statistics.Average /= gradesInMemory.Count;
 
             return statistics;
-        }    
+        }
     }
 }
