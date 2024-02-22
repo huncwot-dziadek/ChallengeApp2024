@@ -14,15 +14,14 @@
             this.Surname = surname;
         }
 
-        public void EmployeeGradeAdded(object sender, EventArgs args)
-        {
-            Console.WriteLine("new rating added");
-        }
-
-
         public string Name { get; private set; }
 
         public string Surname { get; private set; }
+
+        public void EmployeeGradeAdded(object sender, EventArgs args)
+        {
+            Console.Write("New rating added ");
+        }
 
         public abstract void AddGrade(float grade);
 

@@ -6,6 +6,8 @@
 
         string Surname { get; }
 
+        void EmployeeGradeAdded(object sender, EventArgs args);
+
         void AddGrade(float grade);
 
         void AddGrade(int grade);

@@ -21,7 +21,7 @@ namespace ChallengeApp2024
         {
             if (grade >= 0 && grade <= 100)
             {
-                using (var writer = File.AppendText(fileName))
+                using (var writer = File.AppendText($"{Name}{Surname}.txt"))
                 {
                     writer.WriteLine(grade);
                 }
@@ -40,9 +40,8 @@ namespace ChallengeApp2024
 
         public void EmployeeGradeAdded(object sender, EventArgs args)
         {
-            Console.WriteLine($"{this.Name} {this.Surname}: ");
-            Console.Write("To file: ");
             base.EmployeeGradeAdded(sender, args);
+            Console.WriteLine($"to file {this.Name} {this.Surname} in {DateTime.Now.ToString()}");
         }
         public void AddGrade(int grade)
         {
