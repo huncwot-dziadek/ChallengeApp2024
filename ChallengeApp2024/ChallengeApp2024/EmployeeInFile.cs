@@ -1,8 +1,10 @@
-﻿namespace ChallengeApp2024
+﻿using static ChallengeApp2024.EmployeeBase;
+
+namespace ChallengeApp2024
 {
     public class EmployeeInFile : EmployeeBase
     {
-
+        
         public event GradeAddedDelegate GradeAdded;
 
 
@@ -38,7 +40,8 @@
 
         public void EmployeeGradeAdded(object sender, EventArgs args)
         {
-            Console.Write($"{this.Name} {this.Surname}: ");
+            Console.WriteLine($"{this.Name} {this.Surname}: ");
+            Console.Write("To file: ");
             base.EmployeeGradeAdded(sender, args);
         }
         public void AddGrade(int grade)

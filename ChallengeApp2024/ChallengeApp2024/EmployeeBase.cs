@@ -16,7 +16,7 @@
 
         public void EmployeeGradeAdded(object sender, EventArgs args)
         {
-            Console.WriteLine("New rating added");
+            Console.WriteLine("new rating added");
         }
 
 
