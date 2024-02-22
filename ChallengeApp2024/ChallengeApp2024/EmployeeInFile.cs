@@ -21,6 +21,9 @@ namespace ChallengeApp2024
         {
             if (grade >= 0 && grade <= 100)
             {
+                
+                gradesInMemory.Add(grade);
+                
                 using (var writer = File.AppendText($"{Name}{Surname}.txt"))
                 {
                     writer.WriteLine(grade);
@@ -165,15 +168,5 @@ namespace ChallengeApp2024
 
             return statistics;
         }
-
-        //public override void WywolajDelegata()
-        //{
-        //    base.GradeAdded += EmployeeInFileGradeAdded;
-        //}
-
-        //private void EmployeeInFileGradeAdded(object sender, EventArgs args)
-        //{
-        //    Console.WriteLine("Dopisano ocenę do pliku");
-        //}
     }
 }
