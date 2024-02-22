@@ -14,6 +14,12 @@
             this.Surname = surname;
         }
 
+        public void EmployeeGradeAdded(object sender, EventArgs args)
+        {
+            Console.WriteLine("New rating added");
+        }
+
+
         public string Name { get; private set; }
 
         public string Surname { get; private set; }

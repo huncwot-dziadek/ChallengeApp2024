@@ -1,10 +1,9 @@
-﻿namespace ChallengeApp2024
+﻿using System.Diagnostics;
+
+namespace ChallengeApp2024
 {
     public class EmployeeInMemory : EmployeeBase
     {
-
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
-
 
         public event GradeAddedDelegate GradeAdded;
 
@@ -31,6 +30,11 @@
             {
                 throw new Exception("This grade is out of range");
             }
+        }
+
+        public void EmployeeGradeAdded(object sender, EventArgs args)
+        {
+            base.EmployeeGradeAdded(sender, args);
         }
 
         public void AddGrade(int grade)

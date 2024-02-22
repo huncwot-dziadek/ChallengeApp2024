@@ -2,8 +2,6 @@
 {
     public class EmployeeInFile : EmployeeBase
     {
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
-
 
         public event GradeAddedDelegate GradeAdded;
 
@@ -38,6 +36,11 @@
             }
         }
 
+        public void EmployeeGradeAdded(object sender, EventArgs args)
+        {
+            Console.Write($"{this.Name} {this.Surname}: ");
+            base.EmployeeGradeAdded(sender, args);
+        }
         public void AddGrade(int grade)
         {
             base.AddGrade(grade);

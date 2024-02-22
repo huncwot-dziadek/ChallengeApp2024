@@ -1,19 +1,13 @@
 ﻿using System.Xml.Linq;
 using ChallengeApp2024;
 
-EmployeeInFile employeeInFile = new EmployeeInFile("Archibald", "Wykolejony");
+EmployeeInFile employeeInFile = new EmployeeInFile("Anna", "Wanna");
 
 Console.WriteLine($"Welcome to the program: OF THE MONTH");
 Console.WriteLine("=============================================");
 Console.WriteLine();
 
-employeeInFile.GradeAdded += EmployeeGradeAdded;
-
-void EmployeeGradeAdded(object sender, EventArgs args)
-{
-    Console.WriteLine("New rating added");
-}
-
+employeeInFile.GradeAdded += employeeInFile.EmployeeGradeAdded;
 
 while (true)
 {
