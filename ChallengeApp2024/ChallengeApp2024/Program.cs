@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using ChallengeApp2024;
 
-EmployeeInFile employeeInFile = new EmployeeInFile("Anna", "Wanna");
+EmployeeInMemory employeeInFile = new EmployeeInMemory("Anna", "Wanna");
 
 Console.WriteLine($"Welcome to the program: OF THE MONTH");
 Console.WriteLine("=============================================");
@@ -29,9 +29,9 @@ while (true)
     }
 }
 
-employeeInFile.ReadingFromFile();
+//employeeInFile.ReadingFromFile();
 
-Console.WriteLine();
+//Console.WriteLine();
 Console.WriteLine("============================================");
 Console.WriteLine($"{employeeInFile.Name} {employeeInFile.Surname} final results:");
 Console.WriteLine($"Masimum rating = {employeeInFile.GetStatistics().Max}   ");
@@ -40,4 +40,6 @@ Console.WriteLine($"Average rating = {employeeInFile.GetStatistics().Average:N2}
 Console.WriteLine("============================================");
 Console.Write($"Max = {employeeInFile.GetStatistics().Max}   ");
 Console.Write($"Min = {employeeInFile.GetStatistics().Min}   ");
-Console.WriteLine($"Average = {employeeInFile.GetStatistics().Average:N2}   ");
+Console.Write($"Average = {employeeInFile.GetStatistics().Average:N2}   ");
+Console.WriteLine($"Average = {employeeInFile.GetStatistics().AverageLetter:N2}   ");
+
