@@ -2,7 +2,14 @@
 {
     public class EmployeeInFile : EmployeeBase
     {
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+
+        public event GradeAddedDelegate GradeAdded;
+
+
         private List<float> gradesInMemory = new List<float>();
+
 
         private const string fileName = "grades.txt";
 
@@ -18,6 +25,12 @@
                 {
                     writer.WriteLine(grade);
                 }
+
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+
             }
             else
             {
@@ -75,31 +88,31 @@
             }
             else if (grade.Length == 1)
             {
-                    switch (grade)
-                    {
-                        case "A":
-                        case "a":
-                            AddGrade(100.0f);
-                            break;
-                        case "B":
-                        case "b":
-                            AddGrade(80.0f);
-                            break;
-                        case "C":
-                        case "c":
-                            AddGrade(60.0f);
-                            break;
-                        case "D":
-                        case "d":
-                            AddGrade(40.0f);
-                            break;
-                        case "E":
-                        case "e":
-                            AddGrade(20.0f);
-                            break;
-                        default:
-                            throw new Exception("The letter is incorrect");
-                    }
+                switch (grade)
+                {
+                    case "A":
+                    case "a":
+                        AddGrade(100.0f);
+                        break;
+                    case "B":
+                    case "b":
+                        AddGrade(80.0f);
+                        break;
+                    case "C":
+                    case "c":
+                        AddGrade(60.0f);
+                        break;
+                    case "D":
+                    case "d":
+                        AddGrade(40.0f);
+                        break;
+                    case "E":
+                    case "e":
+                        AddGrade(20.0f);
+                        break;
+                    default:
+                        throw new Exception("The letter is incorrect");
+                }
             }
             else
             {
@@ -147,5 +160,15 @@
 
             return statistics;
         }
+
+        //public override void WywolajDelegata()
+        //{
+        //    base.GradeAdded += EmployeeInFileGradeAdded;
+        //}
+
+        //private void EmployeeInFileGradeAdded(object sender, EventArgs args)
+        //{
+        //    Console.WriteLine("Dopisano ocenę do pliku");
+        //}
     }
 }
