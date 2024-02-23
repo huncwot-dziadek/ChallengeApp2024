@@ -21,9 +21,6 @@ namespace ChallengeApp2024
         {
             if (grade >= 0 && grade <= 100)
             {
-                
-                this.ReadingFromFile();
-
                 gradesInMemory.Add(grade);
 
                 using (var writer = File.AppendText($"{Name}{Surname}.txt"))
@@ -151,18 +148,17 @@ namespace ChallengeApp2024
             }
         }
 
-
         public override Statistics GetStatistics()
-{
-    var statistics = new Statistics();
+        {
+            var statistics = new Statistics();
 
 
-    foreach (var grade in gradesInMemory)
-    {
-        statistics.AddGrade(grade);
+            foreach (var grade in gradesInMemory)
+            {
+                statistics.AddGrade(grade);
+            }
+
+            return statistics;
+        }
     }
-
-    return statistics;
-}
-  }
 }

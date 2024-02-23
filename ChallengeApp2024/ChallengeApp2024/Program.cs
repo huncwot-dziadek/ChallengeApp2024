@@ -41,6 +41,5 @@ Console.WriteLine("============================================");
 Console.Write($"Max = {employeeInFile.GetStatistics().Max}   ");
 Console.Write($"Min = {employeeInFile.GetStatistics().Min}   ");
 Console.Write($"Average = {employeeInFile.GetStatistics().Average:N2}   ");
-
 Console.WriteLine($"Average = {employeeInFile.GetStatistics().AverageLetter:N2}   ");
 

@@ -102,6 +102,5 @@ namespace ChallengeApp2024
 
             return statistics;
         }
-
     }
 }
