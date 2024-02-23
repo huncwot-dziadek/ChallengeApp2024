@@ -52,11 +52,6 @@
             this.Sum += grade;
             this.Max = Math.Max(this.Max, grade);
             this.Min = Math.Min(this.Min, grade);
-
         }
-
-
-
-
     }
 }
