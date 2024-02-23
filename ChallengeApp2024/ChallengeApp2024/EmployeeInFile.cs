@@ -1,4 +1,5 @@
-﻿using static ChallengeApp2024.EmployeeBase;
+﻿using System.Diagnostics;
+using static ChallengeApp2024.EmployeeBase;
 
 namespace ChallengeApp2024
 {
@@ -13,7 +14,6 @@ namespace ChallengeApp2024
 
         private const string fileName = "AnnaWanna.txt";
 
-
         public EmployeeInFile(string name, string surname) : base(name, surname)
         {
         }
@@ -22,7 +22,6 @@ namespace ChallengeApp2024
         {
             if (grade >= 0 && grade <= 100)
             {
-                gradesInMemory.Add(grade);
 
                 using (var writer = File.AppendText(fileName))
                 {
@@ -152,7 +151,6 @@ namespace ChallengeApp2024
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
-
 
             foreach (var grade in gradesInMemory)
             {
