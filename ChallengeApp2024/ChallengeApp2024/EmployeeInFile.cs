@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using static ChallengeApp2024.EmployeeBase;
-
-namespace ChallengeApp2024
+﻿namespace ChallengeApp2024
 {
     public class EmployeeInFile : EmployeeBase
     {
@@ -127,8 +124,10 @@ namespace ChallengeApp2024
             }
         }
 
-        public void ReadingFromFile()
+        public override Statistics GetStatistics()
         {
+            var statistics = new Statistics();
+
             if (File.Exists(fileName))
             {
                 using (var reader = File.OpenText(fileName))
@@ -137,26 +136,15 @@ namespace ChallengeApp2024
 
                     while (line != null)
                     {
+                        //var line = reader.ReadLine();
                         if (float.TryParse(line, out float number))
                         {
-                            this.gradesInMemory.Add(number);
-
+                            statistics.AddGrade(number);
                         }
                         line = reader.ReadLine();
                     }
                 }
             }
-        }
-
-        public override Statistics GetStatistics()
-        {
-            var statistics = new Statistics();
-
-            foreach (var grade in gradesInMemory)
-            {
-                statistics.AddGrade(grade);
-            }
-
             return statistics;
         }
     }
