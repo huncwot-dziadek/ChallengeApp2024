@@ -13,6 +13,7 @@ namespace ChallengeApp2024
 
         private const string fileName = "AnnaWanna.txt";
 
+
         public EmployeeInFile(string name, string surname) : base(name, surname)
         {
         }
@@ -23,7 +24,7 @@ namespace ChallengeApp2024
             {
                 gradesInMemory.Add(grade);
 
-                using (var writer = File.AppendText($"{Name}{Surname}.txt"))
+                using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
                 }
@@ -162,3 +163,17 @@ namespace ChallengeApp2024
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//TO ZOSTAWIAM NA PÓŹNIEJ
+//private const string fileName = "$"{Name}{Surname}.txt"";
